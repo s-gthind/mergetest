@@ -1,5 +1,5 @@
 
-name: merged_check
+name: automerge
 on:
   pull_request:
     types: ['closed']
@@ -10,7 +10,7 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
-    - name: Capture Merged Branch
+    - name: Automerge
       run: |
         branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
         echo $branch_name
