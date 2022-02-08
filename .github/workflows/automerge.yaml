@@ -28,7 +28,7 @@ jobs:
         echo $branch_current
         git pull 
         echo $branch_current
- #       git merge origin/develop
+        git merge origin/develop
  #       git push
         
       env:
