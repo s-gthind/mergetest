@@ -14,6 +14,12 @@ jobs:
       run: |
         branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
         echo $branch_name
+      
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR: ${{ github.event.number }}
+        
+        
     - uses: actions/checkout@v2
       with:
         ref-path: preview
