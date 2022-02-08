@@ -29,7 +29,8 @@ jobs:
         git pull 
         echo $branch_current
         git merge origin/develop
- #       git push
+        echo push
+        git push
         
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
