@@ -14,7 +14,6 @@ jobs:
       run: |
         branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
         echo $branch_name
-        git switch origin/preview
         branch_current=$(git branch)
         echo $branch_current
         
