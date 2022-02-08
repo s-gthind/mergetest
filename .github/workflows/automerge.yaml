@@ -26,6 +26,10 @@ jobs:
     - run: | 
         branch_current=$(git rev-parse --abbrev-ref HEAD)
         echo $branch_current
+        git pull 
+        echo $branch_current
+ #       git merge origin/develop
+ #       git push
         
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
