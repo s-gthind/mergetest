@@ -24,7 +24,7 @@ jobs:
       with:
         ref: preview
     - run: | 
-        branch_current=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
+        branch_current=$(git rev-parse --abbrev-ref HEAD)
         echo $branch_current
         
       env:
