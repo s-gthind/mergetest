@@ -1,0 +1,16 @@
+
+name: automerge
+on:
+  pull_request:
+    types: ['closed']
+
+jobs:
+  pr_title_check:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Capture Merged Branch
+      run: |
+        branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
+        echo $branch_name
