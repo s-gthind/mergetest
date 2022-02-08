@@ -5,7 +5,7 @@ on:
     types: ['closed']
 
 jobs:
-  pr_title_check:
+  automerge:
     runs-on: ubuntu-latest
     steps:
 
@@ -14,8 +14,11 @@ jobs:
       run: |
         branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
         echo $branch_name
-        git checkout origin/preview
-        branch_current=$(git branch)
+    - uses: actions/checkout@v2
+      with:
+        ref-path: preview
+    - run: | 
+        branch_current=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
         echo $branch_current
         
       env:
