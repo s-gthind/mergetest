@@ -27,6 +27,7 @@ jobs:
         echo $branch_current
         git pull 
         echo $branch_current
+        echo "------------"
         echo $branch_name
         git merge origin/develop
         echo push
