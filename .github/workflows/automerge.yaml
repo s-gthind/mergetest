@@ -3,6 +3,7 @@ name: automerge
 on:
   pull_request:
     types: ['closed']
+    branches: release_candiadate
 
 jobs:
   capture_merge:
