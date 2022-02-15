@@ -33,13 +33,13 @@ jobs:
     needs: capture_merge
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: preview 
       - name: Export Branch Name
         uses: actions/download-artifact@v1
         with:
           name: branch
-      - uses: actions/checkout@v2
-        with:
-          ref: preview 
       - run: | 
           branch_current=$(git rev-parse --abbrev-ref HEAD)
           echo $branch_current
