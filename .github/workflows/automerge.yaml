@@ -13,8 +13,8 @@ jobs:
     - name: Automerge
       run: |
         branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
-        echo $branch_name
-        export branch_name
+        export $branch_name
+        
       
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
