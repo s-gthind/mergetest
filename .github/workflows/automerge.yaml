@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with: 
          name: branch
-         patch: name_of_branch.txt
+         path: name_of_branch.txt
       
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
