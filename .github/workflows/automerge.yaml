@@ -20,35 +20,3 @@ jobs:
         PR: ${{ github.event.number }}
         
         
-    - uses: actions/checkout@v2
-      with:
-        ref: preview
-    - name: Automerge_preview
-    - run: | 
-        branch_current=$(git rev-parse --abbrev-ref HEAD)
-        echo $branch_current
-        git pull 
-        echo $branch_current
-        git merge origin/develop
-        echo push
-        git push
-        
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-    - uses: actions/checkout@v2
-      with:
-        ref: release_candidate
-    - name: Automerge_release_candidate
-    - run: | 
-        branch_current=$(git rev-parse --abbrev-ref HEAD)
-        echo $branch_current
-        git pull 
-        echo $branch_current
-        git merge origin/preview
-        echo push
-        git push
-        
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
