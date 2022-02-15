@@ -13,6 +13,10 @@ jobs:
         run: |
           branch_name=$(gh pr view  $PR --jq=.headRefName --json=headRefName)
           echo $branch_name > name_of_branch.txt
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         PR: ${{ github.event.number }}
+         
       - name: Capture branch name
         uses: actions/upload-artifact@v1
         with: 
