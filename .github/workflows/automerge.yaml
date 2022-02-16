@@ -2,10 +2,14 @@
 name: automerge
 on:
   pull_request:
+    branches: 
+      - release_candidate
+      - preview
     types: ['closed']
 
 jobs:
   capture_merge:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
